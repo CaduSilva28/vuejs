@@ -8,8 +8,7 @@
         <p v-if="showIdade === true">Idade: {{ cliente.idade }}</p>
         <p v-else>O usuário escondeu a idade</p>
         -->
-
-        <!-- Aqui vai mostrar a idade escondida caso o usuário abra o html -->
+        <!-- Aqui vai mostrar a idade escondida caso o usuário abra o html, porém não tem else -->
         <p v-show="showIdade === true">Idade: {{ cliente.idade }}</p>
     </div>
 </template>
