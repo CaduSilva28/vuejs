@@ -4,6 +4,8 @@
         <hr>
         <p>E-mail: {{cliente.email }}</p>
         <hr>
+        <p>Idade: {{cliente.idade }}</p>
+        <hr>
         <p v-show="showIdade === true">Idade: {{ cliente.idade }}</p>
     </div>
 </template>
@@ -33,7 +35,7 @@ export default {
     }
 
     .cliente-premium{
-        color: rgb(160, 109, 109);
-        background-color: black;
+        color: rgb(255, 255, 255);
+        background-color: rgb(63, 104, 187);
     }
 </style>
