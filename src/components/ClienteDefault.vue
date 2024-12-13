@@ -7,6 +7,7 @@
         <p>Idade: {{cliente.idade }}</p>
         <hr>
         <p v-show="showIdade === true">Idade: {{ cliente.idade }}</p>
+        <button @click="mudarCor($event)">Mudar cor</button>
     </div>
 </template>
 
@@ -22,6 +23,13 @@ export default {
     props: {
         cliente: Object,
         showIdade: Boolean
+    },
+    methods: {
+        mudarCor: function($event){
+            //O this indica: Neste componente, pegue a veariável tal
+            console.log($event);
+            this.isPremium = !this.isPremium
+        }
     }
 }
 </script>
