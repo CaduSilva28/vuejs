@@ -1,5 +1,6 @@
 <template>
   <h3>Cadastro: </h3>
+  <small id="nomeErro" v-show="deuErro">Digite alguma coisa, querido</small><br>
   <input type="text" placeholder="nome" v-model="nomeField"> <br>
   <input type="email" placeholder="email" v-model="emailField"> <br>
   <input type="number" placeholder="idade" v-model="idadeField"> <br>
@@ -22,6 +23,7 @@ export default {
   name: 'App',
   data(){
     return {
+      deuErro: false,
       nomeField: "",
       emailField: "",
       idadeField: 0,
@@ -58,12 +60,17 @@ export default {
   },
   methods: {
     cadastrarUsuario: function(){
-      this.clientes.push({ 
-        nome: this.nomeField, 
-        email: this.emailField, 
-        idade: this.idadeField,
-        id: Date.now()
-      })
+      if(!this.nomeField || !this.emailField || !this.idadeField){
+        this.deuErro = true
+      }else{
+         this.clientes.push({ 
+          nome: this.nomeField, 
+          email: this.emailField, 
+          idade: this.idadeField,
+          id: Date.now()
+        })
+        this.deuErro = false;
+      }
       
       //Limpando os campos cadastrados
       this.nomeField = "";
@@ -75,5 +82,7 @@ export default {
 </script>
 
 <style>
-
+  #nomeErro{
+    color: red;
+  }
 </style>
